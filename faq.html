@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" class="no-touch loaded">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>FriendBee</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <link rel="canonical" href="http://staging.friendbee.co.uk/" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="googlebot" content="noindex,nofollow" />
+  <link href="./index_files/style.min.css" rel="stylesheet" />
+  <link href="./index_files/custom.css" rel="stylesheet" />
+  <script src="https://use.fontawesome.com/725fe102f7.js"></script>
+  <link href="http://staging.friendbee.co.uk/favicon.ico" rel="icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="./js/jquery.min.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand logo" href="http://staging.friendbee.co.uk/">
+        <img src="./index_files/logo-transparent.png" alt="" />
+      </a>
+      <input type="hidden" id="pageTitle" />
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse show" id="collapsibleNavbar">
+        <ul class="
+              nav
+              navbar-nav
+              ml-auto
+              text-right text-uppercase
+              font-weight-bold
+              flex-nowrap
+            ">
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#">RECRUITMENT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#">TRAINING</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#">EMPLOYEE INFO</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link text-dark" href="#">FIND A FAMILY</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#">MESSAGING</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#">MY ACCOUNT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#">
+              <img src="./assets/message.png" />
+              <span class="new-message">2</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <script>
+    $(document).ready(function () {
+      var receiverId = $('#unreadMessageCountListItem').text();
+      if (receiverId > 0 && $('#pageTitle').val() === '') {
+        $.ajax({
+          type: 'get',
+          url: '/umbraco/Surface/Member/GetUnreadMessagesCount',
+          dataType: 'json',
+          data: {
+            receiverID: $('#unreadMessageCountListItem').text(),
+            status: 'Unread',
+          },
+          success: function (result) {
+            $('#messageIconListItem').css('display', 'block');
+            if (result > 0) {
+              $('#unreadMessages').css('display', 'block');
+              $('#unreadMessages').text(result);
+            }
+          },
+          error: function (result) { },
+        });
+      }
+    });
+  </script>
+  <main>
+    <section class="small-banner row no-overlay w-100 m-0" style="background-image: url('./assets/hero-banner.png')">
+    </section>
+    <section class="content faq-page container-xl">
+      <div class="main-content-container">
+        <!-- FAQ Section -->
+        <div class="faq-section pr-0">
+          <div class="faq-header w-100">
+            <h2 class="font-weight-bold">FAQ</h2>
+            <img src="./assets/header-line.png" alt="header-line" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Breadcrumb -->
+      <div class="d-lg-none mb-4">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb px-0">
+            <li class="breadcrumb-item"><a href="#">FAQ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Recruitment</li>
+          </ol>
+        </nav>
+        <button class="btn btn-ellipse back-btn">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          BACK
+        </button>
+      </div>
+      <!-- End Mobile Breadcrumb -->
+
+      <!-- Icons Container -->
+      <div class="icons-container d-none d-lg-block">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="
+                  d-flex
+                  flex-column
+                  justify-content-center
+                  align-items-center
+                  icons-content-container
+                ">
+              <img src="./assets/information.png" alt="" />
+              <span class="text-center">General <br />
+                Information</span>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="
+                  d-flex
+                  flex-column
+                  justify-content-center
+                  align-items-center
+                  icons-content-container
+                ">
+              <img src="./assets/recrut.png" alt="" />
+              <span class="text-center active">Recruitment</span>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="
+                  d-flex
+                  flex-column
+                  justify-content-center
+                  align-items-center
+                  icons-content-container
+                ">
+              <img src="./assets/ongoing.png" alt="" />
+              <span class="text-center">Ongoing Professional Development</span>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="
+                  d-flex
+                  flex-column
+                  justify-content-center
+                  align-items-center
+                  icons-content-container
+                ">
+              <img src="./assets/family.png" alt="" />
+              <span class="text-center">Working with a Family</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-lg-3">
+            <div class="
+                  d-flex
+                  flex-column
+                  justify-content-center
+                  align-items-center
+                  icons-content-container
+                ">
+              <img src="./assets/getting-paid.png" alt="" />
+              <span class="text-center">Getting Paid HR Issues</span>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="
+                  d-flex
+                  flex-column
+                  justify-content-center
+                  align-items-center
+                  icons-content-container
+                ">
+              <img src="./assets/policies.png" alt="" />
+              <span class="text-center">Policies</span>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="
+                  d-flex
+                  flex-column
+                  justify-content-center
+                  align-items-center
+                  icons-content-container
+                ">
+              <img src="./assets/templates.png" alt="" />
+              <span class="text-center">Templates and <br />
+                Forms</span>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="
+                  d-flex
+                  flex-column
+                  justify-content-center
+                  align-items-center
+                  icons-content-container
+                ">
+              <img src="./assets/friendbee.png" alt="" />
+              <span class="text-center">FriendBee Website Guide</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Icons Container -->
+
+      <!-- Recruitment wave -->
+      <h3 class="recru-text wave-after w-100 font-weight-bold text-uppercase d-none d-lg-block">Recruitment</h3>
+      <!-- Recruitment wave -->
+
+      <div class="row">
+        <!-- Sidebar section -->
+        <div class="sidebar-container col-4 d-none d-lg-block">
+          <nav class="sidebar-container-left">
+            <ul class="nav nav-pills flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Initial Contact.</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">The First Meeting.</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Lorem elitr diam tempor.</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Dolore feugait at diam.</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Nonumy lorem ad et commodo.</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sit eos eusimod at.</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Lorem elitr diam tempor takimata.</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- End Sidebar section -->
+
+        <!-- FAQs Content -->
+        <div class="col-12 col-lg-8 mt-3 mt-lg-auto">
+          <!-- Faq Card -->
+          <div class="card faq-card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <span class="d-flex justify-content-between align-items-baseline">
+                  <p class="m-0 font-weight-bold">
+                    1. Nullam aliquam ultricies molestie? 
+                  </p>
+                  <button class="btn" data-toggle="collapse" data-target="#faq-1" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </span>
+              </h5>
+              <div id="faq-1" class="collapse show" aria-labelledby="headingOne">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                  moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                  shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                  proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Faq Card -->
+          <!-- Faq Card -->
+          <div class="card faq-card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <span class="d-flex justify-content-between align-items-baseline">
+                  <p class="m-0 font-weight-bold">
+                    2. Fusce eu rutrum diam, a iaculis mi praesent finibus tellus sed volutpat?
+                  </p>
+                  <button class="btn" data-toggle="collapse" data-target="#faq-2" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </span>
+              </h5>
+              <div id="faq-2" class="collapse show" aria-labelledby="headingOne">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                  moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                  shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                  proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Faq Card -->
+          <!-- Faq Card -->
+          <div class="card faq-card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <span class="d-flex justify-content-between align-items-baseline">
+                  <p class="m-0 font-weight-bold">
+                    3. Maecenas sit amet enim pharetra, sollicitudin velit non, iaculis massa. Interdum et malesuada fames ac ante ipsum primis in faucibus?
+                  </p>
+                  <button class="btn" data-toggle="collapse" data-target="#faq-3" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </span>
+              </h5>
+              <div id="faq-3" class="collapse show" aria-labelledby="headingOne">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                  moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                  shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                  proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Faq Card -->
+          <!-- Faq Card -->
+          <div class="card faq-card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <span class="d-flex justify-content-between align-items-baseline">
+                  <p class="m-0 font-weight-bold">
+                    4. Ut vitae purus non lacus venenatis faucibus sit amet vitae massa. In eget tellus ligula. Fusce feugiat placerat pretium.
+                  </p>
+                  <button class="btn" data-toggle="collapse" data-target="#faq-4" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </span>
+              </h5>
+              <div id="faq-4" class="collapse show" aria-labelledby="headingOne">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                  moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                  shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                  proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Faq Card -->
+          <!-- Faq Card -->
+          <div class="card faq-card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <span class="d-flex justify-content-between align-items-baseline">
+                  <p class="m-0 font-weight-bold">
+                    5. Pellentesque tincidunt ipsum metus? 
+                  </p>
+                  <button class="btn" data-toggle="collapse" data-target="#faq-5" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </span>
+              </h5>
+              <div id="faq-5" class="collapse show" aria-labelledby="headingOne">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                  moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                  shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                  proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Faq Card -->
+          <!-- Faq Card -->
+          <div class="card faq-card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <span class="d-flex justify-content-between align-items-baseline">
+                  <p class="m-0 font-weight-bold">
+                    6. At ullamcorper ante pretium sit amet. Nulla fermentum sit amet ante eget pulvinar. Integer nec dolor massa. In sed enim ante?
+                  </p>
+                  <button class="btn" data-toggle="collapse" data-target="#faq-6" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </span>
+              </h5>
+              <div id="faq-6" class="collapse show" aria-labelledby="headingOne">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                  moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                  shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                  proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Faq Card -->
+          <!-- Faq Card -->
+          <div class="card faq-card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <span class="d-flex justify-content-between align-items-baseline">
+                  <p class="m-0 font-weight-bold">
+                    7. Praesent finibus tellus sed viverra volutpat? 
+                  </p>
+                  <button class="btn" data-toggle="collapse" data-target="#faq-7" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </span>
+              </h5>
+              <div id="faq-7" class="collapse show" aria-labelledby="headingOne">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                  moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                  shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                  proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Faq Card -->
+
+        </div>
+        <!-- End FAQs Content -->
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container-xl">
+      <div class="footer__top">
+        <div class="row justify-content-center">
+          <div class="col-md-3 col-sm-4">
+            <h2 class="font-weight-bold text-uppercase text-white">
+              About us
+            </h2>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.ruils.co.uk/">About Ruils</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://staging.friendbee.co.uk/befriender-landing/">Recruitment</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <h2 class="font-weight-bold text-uppercase text-white">Legal</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="http://staging.friendbee.co.uk/terms-and-conditions/">Terms and Conditions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://staging.friendbee.co.uk/privacy-policy/">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <h2 class="font-weight-bold text-uppercase text-white">
+              Contact
+            </h2>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="http://staging.friendbee.co.uk/contact-us/">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-12">
+            <h2 class="font-weight-bold text-uppercase text-white">
+              Get social
+            </h2>
+            <p>
+              Follow and like us on social media to keep up to date on all
+              Ruils' services and activities.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="row justify-content-between">
+          <div class="col-sm-auto mb-3">
+            <img src="./index_files/logo-alternate.png" alt="" />
+          </div>
+          <div class="col-sm-4 social">
+            <a href="https://www.facebook.com/RUILS" target="_blank">
+              <img src="./index_files/facebook.svg" />
+            </a>
+            <a href="https://twitter.com/RUILS" target="_blank">
+              <img src="./index_files/twitter.svg" />
+            </a>
+            <a href="https://www.instagram.com/ruils_community/" target="_blank">
+              <img src="./index_files/instagram.svg" />
+            </a>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <span class="text-white">© 2020 FriendBee. All rights reserved.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/custom.js"></script>
+  <script>
+    var sTimeout = parseInt(300) * 60 * 1000;
+    setTimeout('SessionEnd()', sTimeout);
+    function SessionEnd() {
+      window.location = '/umbraco/Surface/Member/Logout';
+    }
+    window.dictionary = {
+      cookieConsentMessage:
+        '<p>This website uses<span> </span><a href="/privacy-policy/" title="Privacy Policy">cookies</a><span> to improve your experience.</span></p>',
+    };
+  </script>
+</body>
+
+</html>
