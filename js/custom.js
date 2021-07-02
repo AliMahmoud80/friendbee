@@ -80,6 +80,8 @@
         }
     }
 
+    $('.breadcrumb').children().first().click(() => { goBack() })
+
     // Update breadcrumb content 
     function updateBreadcrumb () {
         const childs = $('.breadcrumb').children()
