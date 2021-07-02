@@ -54,6 +54,7 @@
     function showTabPane (targetTab) {
         // Hide all
         $('.tab-pane').removeClass('show').removeClass('active')
+
         // Show target
         $(targetTab).addClass('show').addClass('active').show()
     }
